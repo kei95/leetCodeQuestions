@@ -60,5 +60,7 @@ function sophisticated_isSameTree(
   );
 }
 
-// console.log(isSameTree);
+// time: O(n)
+// space: O(n)
+
 // @lc code=end
