@@ -47,4 +47,8 @@ function deleteDuplicates(head: ListNode | null): ListNode | null {
 
   return head;
 }
+
+// time: O(n)
+// space: O(n)
+
 // @lc code=end
