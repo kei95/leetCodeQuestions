@@ -25,7 +25,6 @@ interface ListNode {
 // Go through each item with last item.
 // Reference last item's next value to current one if value is different
 // If they have same values, it's skip current one and check on next one with current "last" node.
-
 function deleteDuplicates(head: ListNode | null): ListNode | null {
   if (!head) return head;
 
