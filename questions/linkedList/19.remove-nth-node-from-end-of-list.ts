@@ -67,7 +67,7 @@ function removeNthFromEndMap(
  * eventually the second pointer should be pointing at the one to change reference.
  *
  * * time: O(n)
- * * space: O(n)
+ * * space: O(1)
  */
 function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
   if (!head) return head;
