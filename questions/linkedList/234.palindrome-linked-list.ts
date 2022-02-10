@@ -18,7 +18,7 @@
  */
 
 /**
- * `Device list into half`
+ * `Divide list into a half`
  *
  * Set two pointers which are fast and slow. When fast pointer hits an end, slow pointer is at the middle,
  * so divide the list into left and right. Then reverse right hand of list and check both lists from head simultaneously.
