@@ -14,6 +14,9 @@ import {
  *
  * Prepare max priority queue and store all values in the `nums`.
  * Then dequeue the item k - 1 times and eventually the top in the queue is the answer(kth largest item).
+ *
+ * * time: O(n)
+ * * space: O(n)
  */
 function findKthLargest(nums: number[], k: number): number {
   const maxPriorQueue = new MaxPriorityQueue<number>();
