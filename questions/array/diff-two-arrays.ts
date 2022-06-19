@@ -2,6 +2,9 @@
 
 /**
  * store given arrays with `Set`. Then filter both of them using its `has()` to get symmetric difference.
+ * because the time complexity of `has` is constant time(O(1)),
+ * filter simply iterates both arrays twice with constant time validation
+ * so overall time compexity is O(n). (O(2n))
  *
  * - time: O(n)
  * - space: O(n)
