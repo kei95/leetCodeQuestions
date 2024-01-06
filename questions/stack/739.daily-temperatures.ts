@@ -2,7 +2,7 @@
 
 // Monotonic Decreasing Stack - stack but eventually elements inside is decreasing order
 function dailyTemperatures(temperatures: number[]): number[] {
-  const res = Array(temperatures.length - 1).fill(-Infinity);
+  const res = Array(temperatures.length).fill(0);
   const tempStack: { temperature: number; index: number }[] = [];
 
   temperatures.forEach((temperature, index) => {
@@ -18,17 +18,11 @@ function dailyTemperatures(temperatures: number[]): number[] {
         tempStack.pop();
         continue;
       }
-
       break;
     }
 
     tempStack.push({ temperature, index });
   });
-
-  while (tempStack.length > 0) {
-    const currentDay = tempStack.pop();
-    res[currentDay!.index] = 0;
-  }
 
   return res;
 }
