@@ -1,5 +1,6 @@
 // https://leetcode.com/problems/daily-temperatures
 
+// Monotonic Decreasing Stack - stack but eventually elements inside is decreasing order
 function dailyTemperatures(temperatures: number[]): number[] {
   const res = Array(temperatures.length - 1).fill(-Infinity);
   const tempStack: { temperature: number; index: number }[] = [];
