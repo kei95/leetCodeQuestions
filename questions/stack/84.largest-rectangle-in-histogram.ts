@@ -1,5 +1,8 @@
 // https://leetcode.com/problems/largest-rectangle-in-histogram
 
+// 1. Keep adding rectangle to stack
+// 2. When rectangle is smaller
+
 function largestRectangleArea(heights: number[]): number {
   let stack: { index: number; height: number }[] = [];
   let largestRectangle = 0;
@@ -33,6 +36,8 @@ function largestRectangleArea(heights: number[]): number {
     stack.push(bar);
   });
 
+  // Apply the same logic on remaining elements in the stack
+  // Eventually largestRectangle gets updated if there's a biggest one
   while (stack.length > 0) {
     const poppedBar = stack.pop();
     const poppedBarWidth = heights.length - poppedBar!.index;
