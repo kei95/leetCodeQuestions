@@ -26,8 +26,15 @@ function threeSum(nums: number[]): number[][] {
       if (sum === 0) {
         res.push([nums[i], nums[headIndex], nums[tailIndex]]);
         headIndex++;
-        tailIndex--;
-        continue; // do not stop until you try all the case with base i
+        // Once find a solution for current start position, skip all duplicates as
+        // the same base number means the same answer
+        while (
+          nums[headIndex] === nums[headIndex - 1] &&
+          headIndex < tailIndex
+        ) {
+          headIndex++;
+        }
+        continue;
       }
 
       if (sum > 0) {
