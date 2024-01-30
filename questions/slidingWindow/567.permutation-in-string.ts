@@ -55,3 +55,39 @@ function checkInclusion(s1: string, s2: string): boolean {
 
 // time: O(26 * n)
 // space: O(26 * 2)
+
+function checkInclusion_2(s1: string, s2: string): boolean {
+  const s1HashMap: { [key: string]: number } = createCharsObject();
+  const s2HashMap: { [key: string]: number } = createCharsObject();
+  let head = 0;
+  let tail = s1.length - 1;
+
+  for (const char of s1) {
+    s1HashMap[char] += 1;
+  }
+
+  while (tail < s2.length) {
+    if (head === 0) {
+      let focus = 0;
+      while (focus < s1.length) {
+        s2HashMap[s2[focus]] += 1;
+        focus++;
+      }
+    }
+
+    if (
+      Object.entries(s1HashMap).every(
+        ([key, value]) => value === s2HashMap[key]
+      )
+    ) {
+      return true;
+    }
+
+    s2HashMap[s2[head]] -= 1;
+    head++;
+    tail++;
+    s2HashMap[s2[tail]] += 1;
+  }
+
+  return false;
+}

@@ -25,3 +25,30 @@ function lengthOfLongestSubstring(s: string): number {
 
 // time: O(n)
 // space: O(n)
+
+function lengthOfLongestSubstring_2(s: string): number {
+  const hashMap = {};
+  let head = 0;
+  let maxLength = 0;
+
+  for (let tail = 0; tail < s.length; tail++) {
+    const tailChar = s[tail];
+    hashMap[tailChar] = hashMap[tailChar] ? hashMap[tailChar] + 1 : 1;
+
+    if (hashMap[tailChar] > 1) {
+      while (hashMap[tailChar] !== 1) {
+        hashMap[s[head]] -= 1;
+        head++;
+      }
+    }
+
+    if (maxLength < tail + 1 - head) {
+      maxLength = tail + 1 - head;
+    }
+  }
+
+  return maxLength;
+}
+
+// time: O(n)
+// space: O(n)

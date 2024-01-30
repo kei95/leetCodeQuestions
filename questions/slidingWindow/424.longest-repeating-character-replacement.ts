@@ -29,3 +29,24 @@ function characterReplacement(s: string, k: number): number {
 
 // time O(26n)
 // space O(n)
+
+function characterReplacement_2(s: string, k: number): number {
+  let hashMap: { [key: string]: number } = {};
+  let longestLength = 0;
+  let head = 0;
+
+  for (let tail = 0; tail < s.length; tail++) {
+    const tailChar = s[tail];
+    hashMap[tailChar] = hashMap[tailChar] ? hashMap[tailChar] + 1 : 1;
+
+    while (tail + 1 - head - Math.max(...Object.values(hashMap)) > k) {
+      const headChar = s[head];
+      hashMap[headChar] -= 1;
+      head++;
+    }
+
+    longestLength = Math.max(longestLength, tail + 1 - head);
+  }
+
+  return longestLength;
+}
