@@ -51,5 +51,5 @@ function reorderList(head: ListNode | null): void {
     resultTail = tailNext;
   }
 }
-// O(n)
-// O(1)
+//time: O(n)
+//space: O(1)
